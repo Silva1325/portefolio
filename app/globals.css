@@ -1,26 +1,65 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Colors — from Figma "Color" collection */
+  --color-bg-primary: #ffffff;
+  --color-text-primary: #3b3d41;
+  --color-text-secondary: #a0a5ac;
+  --color-text-hover: #6d7176;
+  --color-border-default: #e7e8ea;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Spacing — from Figma "Spacing" collection */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Radius */
+  --radius-sm: 6px;
+
+  /* Font families */
+  --font-display: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  /* Type scale — from Figma "Typography" collection */
+  --text-hero: 172px;
+  --text-hero--line-height: 150px;
+  --text-hero--letter-spacing: -3.44px;
+
+  --text-display-lg: 80px;
+  --text-display-lg--line-height: 88px;
+  --text-display-lg--letter-spacing: -1.6px;
+
+  /* Intermediate size added for tablet/mobile page titles and hero name —
+     no token existed between display-lg (80px) and heading-lg (28px) */
+  --text-display-md: 48px;
+  --text-display-md--line-height: 56px;
+  --text-display-md--letter-spacing: -1px;
+
+  --text-heading-lg: 28px;
+  --text-heading-lg--line-height: 36px;
+  --text-heading-lg--letter-spacing: -0.28px;
+
+  --text-heading-md: 20px;
+  --text-heading-md--line-height: 28px;
+  --text-heading-md--letter-spacing: -0.2px;
+
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+
+  --text-label: 12px;
+  --text-label--line-height: 14.4px;
+  --text-label--letter-spacing: 1.86px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
 }
