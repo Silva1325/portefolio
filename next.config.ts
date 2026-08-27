@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const repoBasePath = process.env.GITHUB_ACTIONS ? "/portefolio" : "";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -8,10 +8,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
     qualities: [75, 90],
   },
-  basePath: repoBasePath,
-  env: {
-    NEXT_PUBLIC_BASE_PATH: repoBasePath,
-  },
+  basePath,
 };
 
 export default nextConfig;
