@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/basePath";
+
 export const profile = {
   firstName: "Miguel",
   lastName: "Silva",
@@ -110,26 +112,26 @@ export const projectHighlights = {
       "Clients can browse nearby shops, view professionals, and book appointments in just a few taps. Every screen was designed mobile-first, covering the full booking flow from login to confirmation. Both light and dark themes are fully supported, matching the user's system preference.",
     screens: [
       {
-        src: "/images/project/phone-1-login.png",
-        darkSrc: "/images/project/phone-1-login-dark.png",
+        src: withBasePath("/images/project/phone-1-login.png"),
+        darkSrc: withBasePath("/images/project/phone-1-login-dark.png"),
         width: 2041,
         height: 4209,
       },
       {
-        src: "/images/project/phone-2-shops.png",
-        darkSrc: "/images/project/phone-2-shops-dark.png",
+        src: withBasePath("/images/project/phone-2-shops.png"),
+        darkSrc: withBasePath("/images/project/phone-2-shops-dark.png"),
         width: 2041,
         height: 4209,
       },
       {
-        src: "/images/project/phone-3-professional.png",
-        darkSrc: "/images/project/phone-3-professional-dark.png",
+        src: withBasePath("/images/project/phone-3-professional.png"),
+        darkSrc: withBasePath("/images/project/phone-3-professional-dark.png"),
         width: 2041,
         height: 4209,
       },
       {
-        src: "/images/project/phone-4-details.png",
-        darkSrc: "/images/project/phone-4-details-dark.png",
+        src: withBasePath("/images/project/phone-4-details.png"),
+        darkSrc: withBasePath("/images/project/phone-4-details-dark.png"),
         width: 2041,
         height: 4209,
       },
@@ -138,8 +140,16 @@ export const projectHighlights = {
   dashboard: {
     caption:
       "Shop owners had no way to see how their business was performing or manage staff schedules without checking multiple spreadsheets. I built a tablet dashboard that gives staff a live view of their daily schedule and lets owners track revenue, bookings, and top services at a glance.",
-    image: { src: "/images/project/ipad-schedule-light.png", width: 1564, height: 1234 },
-    darkImage: { src: "/images/project/ipad-schedule-dark.png", width: 1564, height: 1234 },
+    image: {
+      src: withBasePath("/images/project/ipad-schedule-light.png"),
+      width: 1564,
+      height: 1234,
+    },
+    darkImage: {
+      src: withBasePath("/images/project/ipad-schedule-dark.png"),
+      width: 1564,
+      height: 1234,
+    },
   },
 };
 

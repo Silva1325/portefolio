@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { withBasePath } from "@/lib/basePath";
 
 const primaryLinks = [
   { href: "/", label: "About" },
@@ -24,7 +25,7 @@ export function Navbar() {
       {/* Mobile top bar */}
       <div className="flex items-center justify-between p-lg md:hidden">
         <Link href="/" className="flex items-center gap-sm">
-          <Image src="/logo.svg" alt="" width={76} height={58} />
+          <Image src={withBasePath("/logo.svg")} alt="" width={76} height={58} />
         </Link>
         <div className="flex items-center gap-xl">
           {primaryLinks.map((link) => (
@@ -36,7 +37,7 @@ export function Navbar() {
       {/* Tablet / desktop sidebar */}
       <div className="hidden md:flex md:h-full md:flex-col md:gap-lg md:py-2xl">
         <div className="flex flex-col gap-lg px-lg">
-          <Image src="/logo.svg" alt="Miguel Silva" width={76} height={58} />
+          <Image src={withBasePath("/logo.svg")} alt="Miguel Silva" width={76} height={58} />
           <div className="flex flex-col gap-sm">
             {primaryLinks.map((link) => (
               <NavLink key={link.href} href={link.href} active={pathname === link.href} />

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/basePath";
 import { profile } from "@/lib/content";
 
 function HeroFogImage({
@@ -33,7 +34,7 @@ export function Hero() {
   return (
     <div className="flex flex-col gap-lg xl:hidden">
       <Image
-        src="/images/hero-2.jpg"
+        src={withBasePath("/images/hero-2.jpg")}
         alt={`${profile.firstName} ${profile.lastName}`}
         width={276}
         height={456}
@@ -64,20 +65,20 @@ export function HeroDesktop() {
         </p>
         <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-y-1/2 gap-md">
           <HeroFogImage
-            src="/images/hero-1.jpg"
+            src={withBasePath("/images/hero-1.jpg")}
             width={275}
             height={224}
             className="h-[224px] w-[275px] self-end"
           />
           <HeroFogImage
-            src="/images/hero-2.jpg"
+            src={withBasePath("/images/hero-2.jpg")}
             alt={`${profile.firstName} ${profile.lastName}`}
             width={275}
             height={456}
             className="h-[456px] w-[275px]"
           />
           <HeroFogImage
-            src="/images/hero-5.jpg"
+            src={withBasePath("/images/hero-5.jpg")}
             width={275}
             height={340}
             className="h-[340px] w-[275px] self-start"
