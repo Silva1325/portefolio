@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
@@ -9,6 +9,21 @@ import { projectHighlights } from "@/lib/content";
 
 export function ProjectHighlights() {
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const urls = [
+      ...projectHighlights.mobile.screens.flatMap((screen) => [
+        screen.src,
+        screen.darkSrc,
+      ]),
+      projectHighlights.dashboard.image.src,
+      projectHighlights.dashboard.darkImage.src,
+    ];
+    urls.forEach((url) => {
+      const img = new window.Image();
+      img.src = url;
+    });
+  }, []);
 
   const dashboardImage = isDark
     ? projectHighlights.dashboard.darkImage
@@ -35,7 +50,6 @@ export function ProjectHighlights() {
                 width={screen.width}
                 height={screen.height}
                 sizes="(min-width: 1024px) 220px, (min-width: 768px) 45vw, 80vw"
-                quality={90}
                 className="mx-auto h-auto w-full max-w-[220px] rounded-sm"
               />
             ))}
@@ -52,7 +66,6 @@ export function ProjectHighlights() {
               alt=""
               width={dashboardImage.width}
               height={dashboardImage.height}
-              quality={90}
               className="h-auto w-full rounded-sm"
             />
           </div>
