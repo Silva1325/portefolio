@@ -34,10 +34,10 @@ export function Hero() {
   return (
     <div className="flex flex-col gap-lg xl:hidden">
       <Image
-        src={withBasePath("/images/hero-2.jpg")}
+        src={withBasePath("/images/hero-2.webp")}
         alt={`${profile.firstName} ${profile.lastName}`}
-        width={276}
-        height={456}
+        width={1000}
+        height={1500}
         className="h-[300px] w-full rounded-sm object-cover md:h-[380px]"
         priority
       />
@@ -65,22 +65,22 @@ export function HeroDesktop() {
         </p>
         <div className="absolute left-1/2 top-1/2 -z-10 flex -translate-y-1/2 gap-md">
           <HeroFogImage
-            src={withBasePath("/images/hero-1.jpg")}
-            width={275}
-            height={224}
+            src={withBasePath("/images/hero-1.webp")}
+            width={550}
+            height={367}
             className="h-[224px] w-[275px] self-end"
           />
           <HeroFogImage
-            src={withBasePath("/images/hero-2.jpg")}
+            src={withBasePath("/images/hero-2.webp")}
             alt={`${profile.firstName} ${profile.lastName}`}
-            width={275}
-            height={456}
+            width={1000}
+            height={1500}
             className="h-[456px] w-[275px]"
           />
           <HeroFogImage
-            src={withBasePath("/images/hero-5.jpg")}
-            width={275}
-            height={340}
+            src={withBasePath("/images/hero-5.webp")}
+            width={550}
+            height={733}
             className="h-[340px] w-[275px] self-start"
           />
         </div>

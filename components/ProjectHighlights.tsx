@@ -2,10 +2,50 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { motion } from "motion/react";
 import { Reveal } from "@/components/Reveal";
 import { SectionLabel } from "@/components/SectionLabel";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { projectHighlights } from "@/lib/content";
+
+const crossfadeTransition = { duration: 0.35, ease: [0.4, 0, 0.2, 1] as const };
+
+function CrossfadeImage({
+  src,
+  darkSrc,
+  isDark,
+  width,
+  height,
+  sizes,
+  className,
+}: {
+  src: string;
+  darkSrc: string;
+  isDark: boolean;
+  width: number;
+  height: number;
+  sizes?: string;
+  className: string;
+}) {
+  return (
+    <div className={`relative ${className}`} style={{ aspectRatio: `${width} / ${height}` }}>
+      <motion.div
+        className="absolute inset-0"
+        animate={{ opacity: isDark ? 0 : 1 }}
+        transition={crossfadeTransition}
+      >
+        <Image src={src} alt="" fill sizes={sizes} className="rounded-sm object-cover" />
+      </motion.div>
+      <motion.div
+        className="absolute inset-0"
+        animate={{ opacity: isDark ? 1 : 0 }}
+        transition={crossfadeTransition}
+      >
+        <Image src={darkSrc} alt="" fill sizes={sizes} className="rounded-sm object-cover" />
+      </motion.div>
+    </div>
+  );
+}
 
 export function ProjectHighlights() {
   const [isDark, setIsDark] = useState(false);
@@ -25,10 +65,6 @@ export function ProjectHighlights() {
     });
   }, []);
 
-  const dashboardImage = isDark
-    ? projectHighlights.dashboard.darkImage
-    : projectHighlights.dashboard.image;
-
   return (
     <section className="flex flex-col gap-md">
       <Reveal className="flex items-center justify-between">
@@ -43,14 +79,15 @@ export function ProjectHighlights() {
           </p>
           <div className="grid grid-cols-1 gap-lg rounded-[20px] bg-[#F8F9FA] px-lg py-2xl md:grid-cols-2 lg:grid-cols-4">
             {projectHighlights.mobile.screens.map((screen) => (
-              <Image
+              <CrossfadeImage
                 key={screen.src}
-                src={isDark ? screen.darkSrc : screen.src}
-                alt=""
+                src={screen.src}
+                darkSrc={screen.darkSrc}
+                isDark={isDark}
                 width={screen.width}
                 height={screen.height}
                 sizes="(min-width: 1024px) 220px, (min-width: 768px) 45vw, 80vw"
-                className="mx-auto h-auto w-full max-w-[220px] rounded-sm"
+                className="mx-auto w-full max-w-[220px]"
               />
             ))}
           </div>
@@ -61,12 +98,14 @@ export function ProjectHighlights() {
             {projectHighlights.dashboard.caption}
           </p>
           <div className="rounded-[20px] bg-[#F8F9FA] px-lg py-2xl">
-            <Image
-              src={dashboardImage.src}
-              alt=""
-              width={dashboardImage.width}
-              height={dashboardImage.height}
-              className="h-auto w-full rounded-sm"
+            <CrossfadeImage
+              src={projectHighlights.dashboard.image.src}
+              darkSrc={projectHighlights.dashboard.darkImage.src}
+              isDark={isDark}
+              width={projectHighlights.dashboard.image.width}
+              height={projectHighlights.dashboard.image.height}
+              sizes="(min-width: 1024px) 953px, 100vw"
+              className="w-full"
             />
           </div>
         </Reveal>
