@@ -8,7 +8,7 @@ import { education, employment, info, technicalSkills } from "@/lib/content";
 export default function Home() {
   return (
     <div className="mx-auto flex max-w-[953px] flex-col gap-2xl px-lg py-2xl md:px-2xl lg:px-3xl lg:py-3xl">
-      <Reveal className="pt-2xl pb-md xl:pb-2xl">
+      <Reveal className="pb-md xl:pb-2xl">
         <Hero />
         <HeroDesktop />
       </Reveal>

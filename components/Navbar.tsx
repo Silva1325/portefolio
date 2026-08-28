@@ -4,17 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { withBasePath } from "@/lib/basePath";
+import { contactLinks, socialLinks } from "@/lib/content";
 
 const primaryLinks = [
   { href: "/", label: "About" },
   { href: "/projects", label: "Projects" },
-];
-
-const contactLinks = [
-  { label: "Mail", href: "mailto:miguelsilva2001511@gmail.com" },
-  { label: "Phone", href: "tel:+351911037312" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/miguel-silva-068974186/" },
-  { label: "Github", href: "https://github.com/silva1325" },
 ];
 
 export function Navbar() {
@@ -48,17 +42,34 @@ export function Navbar() {
         {/* Full-bleed — must not inherit horizontal padding from a shared container */}
         <div className="border-t border-border-default" />
 
-        <div className="flex flex-col gap-sm px-lg">
-          <p className="text-label text-text-secondary uppercase">Contact</p>
-          {contactLinks.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-body text-text-primary transition-colors duration-200 hover:text-text-hover"
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="flex flex-col gap-lg px-lg">
+          <div className="flex flex-col gap-sm">
+            <p className="text-label text-text-secondary uppercase">Socials</p>
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-body text-text-primary transition-colors duration-200 hover:text-text-hover"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          <div className="flex flex-col gap-sm">
+            <p className="text-label text-text-secondary uppercase">Contact</p>
+            {contactLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-body text-text-primary transition-colors duration-200 hover:text-text-hover"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </nav>

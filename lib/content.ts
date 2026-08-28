@@ -6,6 +6,16 @@ export const profile = {
   role: "Software Engineer",
 };
 
+export const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/miguel-silva-068974186/" },
+  { label: "Github", href: "https://github.com/silva1325" },
+];
+
+export const contactLinks = [
+  { label: "Mail", href: "mailto:miguelsilva2001511@gmail.com" },
+  { label: "Phone", href: "tel:+351911037312" },
+];
+
 export const info = {
   lead: "I'm a software engineer living in Porto.",
   paragraphs: [
