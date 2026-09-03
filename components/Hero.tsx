@@ -34,10 +34,10 @@ export function Hero() {
   return (
     <div className="flex flex-col gap-lg xl:hidden">
       <Image
-        src={withBasePath("/images/hero-2.webp")}
+        src={withBasePath("/images/hero-6.webp")}
         alt={`${profile.firstName} ${profile.lastName}`}
         width={1000}
-        height={1500}
+        height={1006}
         className="h-[300px] w-full rounded-sm object-cover md:h-[380px]"
         priority
       />
@@ -71,10 +71,10 @@ export function HeroDesktop() {
             className="h-[224px] w-[275px] self-end"
           />
           <HeroFogImage
-            src={withBasePath("/images/hero-2.webp")}
+            src={withBasePath("/images/hero-6.webp")}
             alt={`${profile.firstName} ${profile.lastName}`}
             width={1000}
-            height={1500}
+            height={1006}
             className="h-[456px] w-[275px]"
           />
           <HeroFogImage

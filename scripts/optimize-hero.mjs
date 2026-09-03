@@ -5,7 +5,7 @@ const dir = "C:/Users/Miguel Silva/Desktop/Work/portefolio/public/images/";
 
 const targets = [
   { name: "hero-1", width: 550 },
-  { name: "hero-2", width: 1000 },
+  { name: "hero-6", width: 1000 },
   { name: "hero-5", width: 550 },
 ];
 
